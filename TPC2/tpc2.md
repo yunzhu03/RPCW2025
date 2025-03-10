@@ -10,6 +10,7 @@ SELECT (COUNT(?s) AS ?triplos) WHERE {
 ```
 R.: Existem 6603 triplos. Cada triplo tem um 's', 'p' e 'o', contando o número de qualquer um destes elementos, obtemos o número de triplos na ontologia.
 
+// (count(*) as ?triplos)
 
 ### b. Que classes estão definidas?
 ```
@@ -45,18 +46,27 @@ SELECT ?nome ?dataNascimento ?cognomes WHERE {
     ?s :nascimento ?dataNascimento .
     ?s :cognomes ?cognomes .
 }
+
+ponto e virgula abrevia o sujeito
+SELECT ?nome ?dataNascimento ?cognomes WHERE { 
+    ?s a :Rei ;
+       :nome ?nome ;
+       :nascimento ?dataNascimento ;
+       :cognomes ?cognomes .
+}
 ```
 R.: Feito com base na forma como a informação era armazenada no grafo.
 
 ### f. Acrescenta à tabela anterior a dinastia m que cada rei reinou.
 ```
-SELECT ?nome ?dataNascimento ?cognomes ?dinastia WHERE { 
+SELECT ?nome ?dataNascimento ?cognomes ?nomeDinastia WHERE { 
     ?s a :Rei .
     ?s :nome ?nome .
     ?s :nascimento ?dataNascimento .
     ?s :cognomes ?cognomes .
     ?s :temReinado ?reinado .
     ?reinado :dinastia ?dinastia .
+    ?dinastia :nome ?nomeDinastia . 
 }
 ```
 R.: Cada rei tem um reinado e a esse reinado vai se buscar a dinastia.
@@ -71,6 +81,13 @@ SELECT ?dinastia (GROUP_CONCAT(?nome; separator=", ") AS ?nomes) WHERE {
 }
 
 GROUP BY ?dinastia 
+
+
+select ?dinastia (count(?monarca) as ?nmonarca) where {
+    ?monarca a :Rei .
+    ?monarca :temReinado/:dinastia ?dinastia.
+}
+group by ?dinastia
 ```
 
 ### h. Lista os descobrimentos (sua descrição) por ordem cronológica.
@@ -133,13 +150,20 @@ SELECT ?nome WHERE {
 
 ### m. Qual a distribuição dos militantes por cada partido político?
 ```
-SELECT ?partidos (GROUP_CONCAT(?nome; separator=", ") AS ?militantes) WHERE { 
+SELECT ?partido (GROUP_CONCAT(?nome; separator=", ") AS ?militantes) WHERE { 
     ?presidente a :Presidente .
     ?presidente :nome ?nome .
     ?presidente :partido ?partidos .
-
+    ?partidos :nome ?partido .
 }
-GROUP BY ?partidos
+GROUP BY ?partido
+
+select ?nome (count(?militante) as ?militante) where {
+    ?p a :Partido ;
+        :nome ?nome ;
+        :temMilitante ?militante .
+}
+group by ?nome
 ```
 
 ### n. Qual o partido com maior número de presidentes militantes?

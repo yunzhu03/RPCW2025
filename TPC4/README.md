@@ -1,5 +1,7 @@
 ## TPC4: Harvester de DBPedia sobre Cinema.
 
+### Não funciona 🤡
+
 Estrutura da informação de cada filme a buscar:
 ```
 [

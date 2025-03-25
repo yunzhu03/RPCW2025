@@ -20,7 +20,7 @@ for m in movies:
     OPTIONAL {{ <{m}> dbo:country ?p. }}
     OPTIONAL {{ ?p rdfs:label ?pais FILTER(LANG(?pais) = "en") }}
     OPTIONAL {{ <{m}> dbp:director ?r. }}
-    OPTIONAL {{ ?rr rdfs:label ?realizador FILTER(LANG(?realizador) = "en") }}
+    OPTIONAL {{ ?r rdfs:label ?realizador FILTER(LANG(?realizador) = "en") }}
     OPTIONAL {{ <{m}> dbo:abstract ?sinopse. filter(lang(?sinopse)="en") }}
     OPTIONAL {{ <{m}> dbo:releaseDate ?data .}}
     }} 
@@ -38,7 +38,7 @@ for m in movies:
     select distinct ?ator ?nome ?origem ?data where {{
         ?ator a dbo:Person.
         <{m}> dbo:starring ?ator.
-        OPTIONAL {{ ?ator foaf:nome ?nome. filter(lang(?nome)="en") }}
+        OPTIONAL {{ ?ator foaf:name ?nome. filter(lang(?nome)="en") }}
         OPTIONAL {{ ?ator dbo:birthDate ?data. filter(lang(?data)="en") }}
         OPTIONAL {{ ?ator dbo:birthPlace ?birthPlace. }}
         OPTIONAL {{ ?birthPlace dbo:country ?origem. filter(lang(?origem)="en") }}
@@ -52,29 +52,29 @@ for m in movies:
     atores = []
     generos = []
 
-    for ator in result2['results']['bindings']:
-        atores.append(
-            {
-            "id": ator['ator']['value'],
-            "nome": ator['nome']['value'],
-            "origem": ator['origem']['value'],
-            "dataNasc": ator['data']['value']           
-            }
-        )
+    for ator in result2.get('results', {}).get('bindings', []):
+        atores.append({
+            "id": ator.get('ator', {}).get('value', "N/A"),
+            "nome": ator.get('nome', {}).get('value', "N/A"),
+            "origem": ator.get('origem', {}).get('value', "N/A"),
+            "dataNasc": ator.get('data', {}).get('value', "N/A")
+        })
+
         
-    for genero in result3['results']['bindings']:
+    for genero in result3.get('results', {}).get('bindings', []):
         generos.append(genero['genero']['value'])
 
+    result = result.get('results', {}).get('bindings', [])[0]
     dataset.append(
         {
             "id": m,
-            "titulo": result['nome']['value'],
-            "pais": result['pais']['value'],
-            "data": result['data']['value'],
-            "realizador": result['realizador']['value'],
+            "titulo": result.get('nome', {}).get('value', "N/A"),
+            "pais": result.get('pais', {}).get('value', "N/A"),
+            "data": result.get('data', {}).get('value', "N/A"),
+            "realizador": result.get('realizador', {}).get('value', "N/A"),
             "elenco": atores,
             "genero": generos,
-            "sinopse": result['sinopse']['value']
+            "sinopse": result.get('sinopse', {}).get('value', "N/A")
         }
     )
 

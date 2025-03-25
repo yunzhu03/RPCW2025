@@ -1,0 +1,512 @@
+@prefix : <http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18/> .
+
+<http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18> rdf:type owl:Ontology ;
+                                                                          rdfs:comment "Ontologia sobre Cinema." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#atuou
+:atuou rdf:type owl:ObjectProperty ;
+       owl:inverseOf :temAtor .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#compôs
+:compôs rdf:type owl:ObjectProperty ;
+        owl:inverseOf :foiComposta ;
+        rdfs:domain :Pessoa ;
+        rdfs:range :Obra .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#escreveu
+:escreveu rdf:type owl:ObjectProperty ;
+          owl:inverseOf :foiEscrita ;
+          rdfs:domain :Pessoa ;
+          rdfs:range :Obra .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#foiComposta
+:foiComposta rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#foiEscrita
+:foiEscrita rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#realizou
+:realizou rdf:type owl:ObjectProperty ;
+          owl:inverseOf :temRealizador .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temArgumento
+:temArgumento rdf:type owl:ObjectProperty ;
+              rdfs:domain :Filme ;
+              rdfs:range :Argumento .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temAtor
+:temAtor rdf:type owl:ObjectProperty ;
+         rdfs:domain :Filme ;
+         rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temGénero
+:temGénero rdf:type owl:ObjectProperty ;
+           rdfs:domain :Filme ;
+           rdfs:range :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temLíngua
+:temLíngua rdf:type owl:ObjectProperty ;
+           rdfs:domain :Filme ;
+           rdfs:range :Língua .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temPaísOrigem
+:temPaísOrigem rdf:type owl:ObjectProperty ;
+               rdfs:domain :Filme ;
+               rdfs:range :País .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temPersonagem
+:temPersonagem rdf:type owl:ObjectProperty ;
+               owl:inverseOf :éPersonagem ;
+               rdfs:domain :Ator ;
+               rdfs:range :Personagem .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temPeçaMuscial
+:temPeçaMuscial rdf:type owl:ObjectProperty ;
+                rdfs:domain :Filme ;
+                rdfs:range :Peça_Musical .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temRealizador
+:temRealizador rdf:type owl:ObjectProperty ;
+               rdfs:domain :Filme ;
+               rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#éPersonagem
+:éPersonagem rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#data
+:data rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Filme ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#duração
+:duração rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Filme ;
+         rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#temSexo
+:temSexo rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Pessoa ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#título
+:título rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Filme ;
+        rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Argumento
+:Argumento rdf:type owl:Class ;
+           rdfs:subClassOf :Obra .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Ator
+:Ator rdf:type owl:Class ;
+      owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :atuou ;
+                                                   owl:someValuesFrom :Filme
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ] ;
+      rdfs:subClassOf [ rdf:type owl:Class ;
+                        owl:unionOf ( :AtorFeminino
+                                      :AtorMasculino
+                                    )
+                      ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#AtorFeminino
+:AtorFeminino rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :Ator
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :temSexo ;
+                                                           owl:hasValue "F"
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#AtorMasculino
+:AtorMasculino rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :Ator
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :temSexo ;
+                                                            owl:hasValue "M"
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Escritor
+:Escritor rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :escreveu ;
+                                                       owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                            owl:unionOf ( :Argumento
+                                                                                          :Livro
+                                                                                        )
+                                                                          ]
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Filme
+:Filme rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#FilmeAmericano
+:FilmeAmericano rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :Filme
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :temPaísOrigem ;
+                                                             owl:hasValue :Estados_Unidos
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#FilmeAventura
+:FilmeAventura rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :Filme
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :temGénero ;
+                                                            owl:hasValue :Aventura
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#FilmeDramático
+:FilmeDramático rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :Filme
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :temGénero ;
+                                                             owl:hasValue :Drama
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#FilmeInfantil
+:FilmeInfantil rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :Filme
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :temGénero ;
+                                                            owl:hasValue :Infantil
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#FilmeRomântico
+:FilmeRomântico rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :Filme
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :temGénero ;
+                                                             owl:hasValue :Romance
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Género
+:Género rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Livro
+:Livro rdf:type owl:Class ;
+       rdfs:subClassOf :Obra .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Língua
+:Língua rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Música
+:Música rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Músico
+:Músico rdf:type owl:Class ;
+        owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :compôs ;
+                                                     owl:someValuesFrom :Peça_Musical
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Obra
+:Obra rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#País
+:País rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Personagem
+:Personagem rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Peça_Musical
+:Peça_Musical rdf:type owl:Class ;
+              rdfs:subClassOf :Obra .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Realizador
+:Realizador rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :realizou ;
+                                                         owl:someValuesFrom :Filme
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Alex
+:Alex rdf:type owl:NamedIndividual ,
+               :Personagem .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#ArgumentoTwilight
+:ArgumentoTwilight rdf:type owl:NamedIndividual ,
+                            :Argumento .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Aventura
+:Aventura rdf:type owl:NamedIndividual ,
+                   :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Ação
+:Ação rdf:type owl:NamedIndividual ,
+               :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Ben_Stiller
+:Ben_Stiller rdf:type owl:NamedIndividual ,
+                      :Ator ;
+             :temPersonagem :Alex .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Billy_Burke
+:Billy_Burke rdf:type owl:NamedIndividual ,
+                      :Pessoa ;
+             :atuou :Twilight ;
+             :temSexo "M" .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Catherine_Hardwicke
+:Catherine_Hardwicke rdf:type owl:NamedIndividual ,
+                              :Pessoa ;
+                     :realizou :Twilight .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Chris_Rock
+:Chris_Rock rdf:type owl:NamedIndividual ,
+                     :Personagem ;
+            :temPersonagem :Marty .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Comédia
+:Comédia rdf:type owl:NamedIndividual ,
+                  :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Drama
+:Drama rdf:type owl:NamedIndividual ,
+                :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Estados_Unidos
+:Estados_Unidos rdf:type owl:NamedIndividual ,
+                         :País .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Ficção
+:Ficção rdf:type owl:NamedIndividual ,
+                 :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Francês
+:Francês rdf:type owl:NamedIndividual ,
+                  :Língua .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#França
+:França rdf:type owl:NamedIndividual ,
+                 :País .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Gloria
+:Gloria rdf:type owl:NamedIndividual ,
+                 :Personagem .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Infantil
+:Infantil rdf:type owl:NamedIndividual ,
+                   :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Inglaterra
+:Inglaterra rdf:type owl:NamedIndividual ,
+                     :País .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Inglês
+:Inglês rdf:type owl:NamedIndividual ,
+                 :Língua .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Kristen_Stewart
+:Kristen_Stewart rdf:type owl:NamedIndividual ,
+                          :Pessoa ;
+                 :atuou :Twilight ;
+                 :temSexo "F" .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Madagascar2
+:Madagascar2 rdf:type owl:NamedIndividual ,
+                      :Filme ;
+             :temGénero :Aventura ,
+                        :Infantil ;
+             :data "2008-12-05" ;
+             :duração 89 ;
+             :título "Madagascar: Escape 2 Africa" .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Marty
+:Marty rdf:type owl:NamedIndividual ,
+                :Personagem .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Melissa_Rosenberg
+:Melissa_Rosenberg rdf:type owl:NamedIndividual ,
+                            :Pessoa ;
+                   :escreveu :ArgumentoTwilight .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Melman
+:Melman rdf:type owl:NamedIndividual ,
+                 :Personagem .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Portugal
+:Portugal rdf:type owl:NamedIndividual ,
+                   :País .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Português
+:Português rdf:type owl:NamedIndividual ,
+                    :Língua .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Robert_Pattinson
+:Robert_Pattinson rdf:type owl:NamedIndividual ,
+                           :Pessoa ;
+                  :atuou :Twilight ;
+                  :temSexo "M" .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Romance
+:Romance rdf:type owl:NamedIndividual ,
+                  :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Sarah_Carke
+:Sarah_Carke rdf:type owl:NamedIndividual ,
+                      :Pessoa ;
+             :atuou :Twilight ;
+             :temSexo "F" .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Taylor_Lautner
+:Taylor_Lautner rdf:type owl:NamedIndividual ,
+                         :Pessoa ;
+                :atuou :Twilight ;
+                :temSexo "M" .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Terror
+:Terror rdf:type owl:NamedIndividual ,
+                 :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Thriller
+:Thriller rdf:type owl:NamedIndividual ,
+                   :Género .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-18#Twilight
+:Twilight rdf:type owl:NamedIndividual ,
+                   :Filme ;
+          :temArgumento :ArgumentoTwilight ;
+          :temGénero :Drama ,
+                     :Romance ,
+                     :Thriller ;
+          :temLíngua :Inglês ;
+          :temPaísOrigem :Estados_Unidos ;
+          :data "2008-12-04" ;
+          :duração "122"^^xsd:int .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,37 @@
+1. Quantas classes estão definidas na Ontologia?
+```
+SELECT distinct ?s WHERE { 
+?s a owl:Class .
+}
+```
+> 16
+
+2. Quantas Object Properties estão definidas na Ontologia?
+```
+SELECT distinct ?o WHERE { 
+?o a owl:ObjectProperty .
+}
+```
+> 23
+
+3. Quantos indivíduos existem na tua ontologia?
+```
+SELECT distinct * WHERE { 
+?s a owl:NamedIndividual.
+}
+```
+> 28
+
+4. Quem planta tomates?
+```
+PREFIX : <http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#>
+SELECT * WHERE { 
+?s :cultiva :Tomate .
+}
+```
+
+5. Quem contrata trabalhadores temporários?
+```
+SELECT ?s WHERE { 
+?s :contrata ?t .}
+```

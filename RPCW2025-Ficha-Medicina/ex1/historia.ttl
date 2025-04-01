@@ -1,0 +1,429 @@
+@prefix : <http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23/> .
+
+<http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#alimenta
+:alimenta rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :cria .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#ara
+:ara rdf:type owl:ObjectProperty ;
+     rdfs:range :Campo .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#auxilia
+:auxilia rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :faz .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#auxilia_colheita
+:auxilia_colheita rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :colhe .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#auxilia_criação
+:auxilia_criação rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :cria .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#colhe
+:colhe rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :cultiva .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#contrata
+:contrata rdf:type owl:ObjectProperty ;
+          owl:inverseOf :é_contratador_por .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#cria
+:cria rdf:type owl:ObjectProperty ;
+      rdfs:domain :Pessoa ;
+      rdfs:range :Animal .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#cultiva
+:cultiva rdf:type owl:ObjectProperty ;
+         rdfs:domain :Pessoa ;
+         rdfs:range [ rdf:type owl:Class ;
+                      owl:unionOf ( :Fruta
+                                    :Vegetal
+                                  )
+                    ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#faz
+:faz rdf:type owl:ObjectProperty ;
+     rdfs:domain :Pessoa ;
+     rdfs:range :Geleia .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#pertence_a
+:pertence_a rdf:type owl:ObjectProperty ;
+            rdfs:domain :Fazenda ;
+            rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#planta
+:planta rdf:type owl:ObjectProperty ;
+        rdfs:range :Semente .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#protege
+:protege rdf:type owl:ObjectProperty ;
+         rdfs:range :Fazenda .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_contratador_por
+:é_contratador_por rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Pessoa ;
+                   rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_esposa_de
+:é_esposa_de rdf:type owl:ObjectProperty ;
+             owl:inverseOf :é_marido_de .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_filha_de
+:é_filha_de rdf:type owl:ObjectProperty ;
+            rdfs:domain :Pessoa ;
+            rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_filho_de
+:é_filho_de rdf:type owl:ObjectProperty ;
+            rdfs:domain :Pessoa ;
+            rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_marido_de
+:é_marido_de rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_mãe_de
+:é_mãe_de rdf:type owl:ObjectProperty ;
+          rdfs:domain :Pessoa ;
+          rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_pai_de
+:é_pai_de rdf:type owl:ObjectProperty ;
+          rdfs:domain :Pessoa ;
+          rdfs:range :Pessoa .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_trocado_por
+:é_trocado_por rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( :Fruta
+                                           :Vegetal
+                                         )
+                           ] ;
+               rdfs:range [ rdf:type owl:Class ;
+                            owl:unionOf ( :Fruta
+                                          :Vegetal
+                                        )
+                          ] .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_vendido_na
+:é_vendido_na rdf:type owl:ObjectProperty ;
+              rdfs:domain :Fruta ;
+              rdfs:range :Feira .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#é_vizinho
+:é_vizinho rdf:type owl:ObjectProperty ,
+                    owl:SymmetricProperty ;
+           rdfs:domain :Pessoa ;
+           rdfs:range :Pessoa .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#regime_de_pagamento
+:regime_de_pagamento rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Animal
+:Animal rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Campo
+:Campo rdf:type owl:Class ;
+       rdfs:subClassOf :Fazenda .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Cão
+:Cão rdf:type owl:Class ;
+     rdfs:subClassOf :Doméstico .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#DiaDaSemana
+:DiaDaSemana rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Doméstico
+:Doméstico rdf:type owl:Class ;
+           rdfs:subClassOf :Animal .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Fazenda
+:Fazenda rdf:type owl:Class ;
+         rdfs:subClassOf :Vila .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Feira
+:Feira rdf:type owl:Class ;
+       rdfs:subClassOf :Vila .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Fruta
+:Fruta rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Gado
+:Gado rdf:type owl:Class ;
+      rdfs:subClassOf :Animal .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Geleia
+:Geleia rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Profissão
+:Profissão rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Semente
+:Semente rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Trator
+:Trator rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Vegetal
+:Vegetal rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Vila
+:Vila rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Agricultor
+:Agricultor rdf:type owl:NamedIndividual ,
+                     :Profissão .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Alface
+:Alface rdf:type owl:NamedIndividual ,
+                 :Vegetal .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Ana
+:Ana rdf:type owl:NamedIndividual ,
+              :Pessoa ;
+     :auxilia :Geleia_de_Banana ,
+              :Geleia_de_Laranja ,
+              :Geleia_de_Maçã ;
+     :é_filha_de :João ,
+                 :Maria .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Banana
+:Banana rdf:type owl:NamedIndividual ,
+                 :Fruta .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Campo_do_João
+:Campo_do_João rdf:type owl:NamedIndividual ,
+                        :Campo .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Carlos
+:Carlos rdf:type owl:NamedIndividual ,
+                 :Pessoa ;
+        :cultiva :Alface ,
+                 :Cenoura ,
+                 :Tomate ;
+        :é_vizinho :João .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Cenoura
+:Cenoura rdf:type owl:NamedIndividual ,
+                  :Vegetal .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Fazenda_do_Carlos
+:Fazenda_do_Carlos rdf:type owl:NamedIndividual ,
+                            :Fazenda ;
+                   :pertence_a :Carlos .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Fazenda_do_João
+:Fazenda_do_João rdf:type owl:NamedIndividual ,
+                          :Fazenda ;
+                 :pertence_a :João .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Feira_Local
+:Feira_Local rdf:type owl:NamedIndividual ,
+                      :Feira .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Galinha
+:Galinha rdf:type owl:NamedIndividual ,
+                  :Gado ;
+         :é_vendido_na :Feira_Local .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Geleia_de_Banana
+:Geleia_de_Banana rdf:type owl:NamedIndividual ,
+                           :Geleia ;
+                  :é_vendido_na :Feira_Local .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Geleia_de_Laranja
+:Geleia_de_Laranja rdf:type owl:NamedIndividual ,
+                            :Geleia ;
+                   :é_vendido_na :Feira_Local .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Geleia_de_Maçã
+:Geleia_de_Maçã rdf:type owl:NamedIndividual ,
+                         :Geleia ;
+                :é_vendido_na :Feira_Local .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#João
+:João rdf:type owl:NamedIndividual ,
+               :Pessoa ;
+      :contrata :Trabalhador ;
+      :cria :Galinha ,
+            :Porco ,
+            :Vaca ;
+      :cultiva :Banana ,
+               :Laranja ,
+               :Maçã ;
+      :é_marido_de :Maria ;
+      :é_pai_de :Ana ,
+                :Pedro .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Laranja
+:Laranja rdf:type owl:NamedIndividual ,
+                  :Fruta .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Maria
+:Maria rdf:type owl:NamedIndividual ,
+                :Pessoa ;
+       :alimenta :Galinha ,
+                 :Porco ,
+                 :Vaca ;
+       :colhe :Banana ,
+              :Laranja ,
+              :Maçã ;
+       :faz :Geleia_de_Banana ,
+            :Geleia_de_Laranja ,
+            :Geleia_de_Maçã ;
+       :é_mãe_de :Ana ,
+                 :Pedro .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Maçã
+:Maçã rdf:type owl:NamedIndividual ,
+               :Fruta .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Pedro
+:Pedro rdf:type owl:NamedIndividual ,
+                :Pessoa ;
+       :auxilia_criação :Galinha ,
+                        :Porco ,
+                        :Vaca ;
+       :é_filho_de :João ,
+                   :Maria .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Porco
+:Porco rdf:type owl:NamedIndividual ,
+                :Gado .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Rex
+:Rex rdf:type owl:NamedIndividual ,
+              :Cão ;
+     :protege :Fazenda_do_João .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Sementes_de_fruta
+:Sementes_de_fruta rdf:type owl:NamedIndividual ,
+                            :Semente .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Sábado
+:Sábado rdf:type owl:NamedIndividual ,
+                 :DiaDaSemana .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#São_José
+:São_José rdf:type owl:NamedIndividual ,
+                   :Vila .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Tomate
+:Tomate rdf:type owl:NamedIndividual ,
+                 :Vegetal .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Trabalhador
+:Trabalhador rdf:type owl:NamedIndividual ,
+                      :Pessoa ;
+             :auxilia_colheita :Banana ,
+                               :Laranja ,
+                               :Maçã ;
+             :regime_de_pagamento "por hora e refeição incluído" .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Trator_do_João
+:Trator_do_João rdf:type owl:NamedIndividual ,
+                         :Trator ;
+                :ara :Campo_do_João ;
+                :planta :Sementes_de_fruta .
+
+
+###  http://www.semanticweb.org/yunzhu/ontologies/2025/untitled-ontology-23#Vaca
+:Vaca rdf:type owl:NamedIndividual ,
+               :Gado .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

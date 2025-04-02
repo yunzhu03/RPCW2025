@@ -430,3 +430,142 @@
 :Gastroenteritis :description "Gastroenteritis is an inflammation of the digestive tract, particularly the stomach, and large and small intestines. Viral and bacterial gastroenteritis are intestinal infections associated with symptoms of diarrhea , abdominal cramps, nausea , and vomiting ." .
 
 :Tuberculosis :description "Tuberculosis (TB) is an infectious disease usually caused by Mycobacterium tuberculosis (MTB) bacteria. Tuberculosis generally affects the lungs, but can also affect other parts of the body. Most infections show no symptoms, in which case it is known as latent tuberculosis." .
+
+# alinea 6
+:StopIrritation a :Treatment.
+:ConsultNearestHospital a :Treatment.
+:StopTakingDrug a :Treatment.
+:FollowUp a :Treatment.
+:AvoidOilyFood a :Treatment.
+:AvoidNonVegFood a :Treatment.
+:KeepMosquitosOut a :Treatment.
+:ApplyCalamine a :Treatment.
+:CoverAreaWithBandage a :Treatment.
+:UseIceToCompressItching a :Treatment.
+:ReduceStress a :Treatment.
+:EatHealthy a :Treatment.
+:GetProperSleep a :Treatment.
+:WashHandsWithWarmSoapyWater a :Treatment.
+:StopBleedingUsingPressure a :Treatment.
+:ConsultDoctor a :Treatment.
+:SaltBaths a :Treatment.
+:AvoidFattySpicyFood a :Treatment.
+:AvoidLyingDownAfterEating a :Treatment.
+:MaintainHealthyWeight a :Treatment.
+:ColdBaths a :Treatment.
+:AntiItchMedicine a :Treatment.
+:WashHandsThrough a :Treatment.
+:Medication a :Treatment.
+:Acetaminophen a :Treatment.
+:LieDown a :Treatment.
+:AvoidSuddenChangeInBody a :Treatment.
+:AvoidAbruptHeadMovment a :Treatment.
+:Relax a :Treatment.
+:LieDownOnSide a :Treatment.
+:CheckInPulse a :Treatment.
+:DrinkSugaryDrinks a :Treatment.
+:BathTwice a :Treatment.
+:DrinkPlentyOfWater a :Treatment.
+:AvoidTooManyProducts a :Treatment.
+:HaveBalancedDiet a :Treatment.
+:SoakAffectedAreaInWarmWater a :Treatment.
+:UseAntibiotics a :Treatment.
+:RemoveScabsWithWetCompressedCloth a :Treatment.
+:Meditation a :Treatment.
+:ConsumeProbioticFood a :Treatment.
+:EliminateMilk a :Treatment.
+:LimitAlcohol a :Treatment.
+:ConsumeWitchHazel a :Treatment.
+:WarmBathWithEpsomSalt a :Treatment.
+:ConsumeAloveraJuice a :Treatment.
+:DrinkVitaminCRichDrinks a :Treatment.
+:TakeVapour a :Treatment.
+:AvoidColdFood a :Treatment.
+:KeepFeverInCheck a :Treatment.
+:UseNeemInBathing a :Treatment.
+:ConsumeNeemLeaves a :Treatment.
+:TakeVaccine a :Treatment.
+:AvoidPublicPlaces a :Treatment.
+:UseHeatingPadOrColdPack a :Treatment.
+:TakeOtcPainReliver a :Treatment.
+:Massage a :Treatment.
+:UseLemonBalm a :Treatment.
+:TakeRadioactiveIodineTreatment a :Treatment.
+:IncreaseVitaminCIntake a :Treatment.
+:DrinkCranberryJuice a :Treatment.
+:TakeProbiotics a :Treatment.
+:LieDownFlatAndRaiseTheLegHigh a :Treatment.
+:UseOinments a :Treatment.
+:UseVeinCompression a :Treatment.
+:DontStandStillForLong a :Treatment.
+:AvoidOpenCuts a :Treatment.
+:WearPpeIfPossible a :Treatment.
+:EatHighCalorieVegitables a :Treatment.
+:AntiboiticTherapy a :Treatment.
+:Vaccination a :Treatment.
+:UseDetolOrNeemInBathingWater a :Treatment.
+:KeepInfectedAreaDry a :Treatment.
+:UseCleanCloths a :Treatment.
+:UsePoloroidGlassesInSun a :Treatment.
+:SwitchToLooseCloothing a :Treatment.
+:TakeDeepBreaths a :Treatment.
+:GetAwayFromTrigger a :Treatment.
+:SeekHelp a :Treatment.
+:StopAlcoholConsumption a :Treatment.
+:ConsumeMilkThistle a :Treatment.
+:EatFruitsAndHighFiberousFood a :Treatment.
+:DrinkPapayaLeafJuice a :Treatment.
+:KeepMosquitosAway a :Treatment.
+:KeepHydrated a :Treatment.
+:CallAmbulance a :Treatment.
+:ChewOrSwallowAsprin a :Treatment.
+:KeepCalm a :Treatment.
+:UseHotAndColdTherapy a :Treatment.
+:TryAcupuncture a :Treatment.
+:StopEatingSolidFoodForWhile a :Treatment.
+:TryTakingSmallSipsOfWater a :Treatment.
+:EaseBackIntoEating a :Treatment.
+:CoverMouth a :Treatment.
+
+# alinea 7:Drug_Reaction :hasTreatment :StopIrritation, :ConsultNearestHospital, :StopTakingDrug, :FollowUp .
+:Malaria :hasTreatment :ConsultNearestHospital, :AvoidOilyFood, :AvoidNonVegFood, :KeepMosquitosOut .
+:Allergy :hasTreatment :ApplyCalamine, :CoverAreaWithBandage, :UseIceToCompressItching .
+:Hypothyroidism :hasTreatment :ReduceStress, :Exercise, :EatHealthy, :GetProperSleep .
+:Psoriasis :hasTreatment :WashHandsWithWarmSoapyWater, :StopBleedingUsingPressure, :ConsultDoctor, :SaltBaths .
+:GERD :hasTreatment :AvoidFattySpicyFood, :AvoidLyingDownAfterEating, :MaintainHealthyWeight, :Exercise .
+:Chronic_cholestasis :hasTreatment :ColdBaths, :AntiItchMedicine, :ConsultDoctor, :EatHealthy .
+:hepatitis_A :hasTreatment :ConsultNearestHospital, :WashHandsThrough, :AvoidFattySpicyFood, :Medication .
+:Osteoarthristis :hasTreatment :Acetaminophen, :ConsultNearestHospital, :FollowUp, :SaltBaths .
+:_vertigo__Paroymsal__Positional_Vertigo :hasTreatment :LieDown, :AvoidSuddenChangeInBody, :AvoidAbruptHeadMovment, :Relax .
+:Hypoglycemia :hasTreatment :LieDownOnSide, :CheckInPulse, :DrinkSugaryDrinks, :ConsultDoctor .
+:Acne :hasTreatment :BathTwice, :AvoidFattySpicyFood, :DrinkPlentyOfWater, :AvoidTooManyProducts .
+:Diabetes_ :hasTreatment :HaveBalancedDiet, :Exercise, :ConsultDoctor, :FollowUp .
+:Impetigo :hasTreatment :SoakAffectedAreaInWarmWater, :UseAntibiotics, :RemoveScabsWithWetCompressedCloth, :ConsultDoctor .
+:Hypertension_ :hasTreatment :Meditation, :SaltBaths, :ReduceStress, :GetProperSleep .
+:Peptic_ulcer_diseae :hasTreatment :AvoidFattySpicyFood, :ConsumeProbioticFood, :EliminateMilk, :LimitAlcohol .
+:Dimorphic_hemmorhoids_piles_ :hasTreatment :AvoidFattySpicyFood, :ConsumeWitchHazel, :WarmBathWithEpsomSalt, :ConsumeAloveraJuice .
+:Common_Cold :hasTreatment :DrinkVitaminCRichDrinks, :TakeVapour, :AvoidColdFood, :KeepFeverInCheck .
+:Chicken_pox :hasTreatment :UseNeemInBathing, :ConsumeNeemLeaves, :TakeVaccine, :AvoidPublicPlaces .
+:Cervical_spondylosis :hasTreatment :UseHeatingPadOrColdPack, :Exercise, :TakeOtcPainReliver, :ConsultDoctor .
+:Hyperthyroidism :hasTreatment :EatHealthy, :Massage, :UseLemonBalm, :TakeRadioactiveIodineTreatment .
+:Urinary_tract_infection :hasTreatment :DrinkPlentyOfWater, :IncreaseVitaminCIntake, :DrinkCranberryJuice, :TakeProbiotics .
+:Varicose_veins :hasTreatment :LieDownFlatAndRaiseTheLegHigh, :UseOinments, :UseVeinCompression, :DontStandStillForLong .
+:AIDS :hasTreatment :AvoidOpenCuts, :WearPpeIfPossible, :ConsultDoctor, :FollowUp .
+:Paralysis__brain_hemorrhage_ :hasTreatment :Massage, :EatHealthy, :Exercise, :ConsultDoctor .
+:Typhoid :hasTreatment :EatHighCalorieVegitables, :AntiboiticTherapy, :ConsultDoctor, :Medication .
+:Hepatitis_B :hasTreatment :ConsultNearestHospital, :Vaccination, :EatHealthy, :Medication .
+:Fungal_infection :hasTreatment :BathTwice, :UseDetolOrNeemInBathingWater, :KeepInfectedAreaDry, :UseCleanCloths .
+:Hepatitis_C :hasTreatment :ConsultNearestHospital, :Vaccination, :EatHealthy, :Medication .
+:Migraine :hasTreatment :Meditation, :ReduceStress, :UsePoloroidGlassesInSun, :ConsultDoctor .
+:Bronchial_Asthma :hasTreatment :SwitchToLooseCloothing, :TakeDeepBreaths, :GetAwayFromTrigger, :SeekHelp .
+:Alcoholic_hepatitis :hasTreatment :StopAlcoholConsumption, :ConsultDoctor, :Medication, :FollowUp .
+:Jaundice :hasTreatment :DrinkPlentyOfWater, :ConsumeMilkThistle, :EatFruitsAndHighFiberousFood, :Medication .
+:Hepatitis_E :hasTreatment :StopAlcoholConsumption, :Rest, :ConsultDoctor, :Medication .
+:Dengue :hasTreatment :DrinkPapayaLeafJuice, :AvoidFattySpicyFood, :KeepMosquitosAway, :KeepHydrated .
+:Hepatitis_D :hasTreatment :ConsultDoctor, :Medication, :EatHealthy, :FollowUp .
+:Heart_attack :hasTreatment :CallAmbulance, :ChewOrSwallowAsprin, :KeepCalm .
+:Pneumonia :hasTreatment :ConsultDoctor, :Medication, :Rest, :FollowUp .
+:Arthritis :hasTreatment :Exercise, :UseHotAndColdTherapy, :TryAcupuncture, :Massage .
+:Gastroenteritis :hasTreatment :StopEatingSolidFoodForWhile, :TryTakingSmallSipsOfWater, :Rest, :EaseBackIntoEating .
+:Tuberculosis :hasTreatment :CoverMouth, :ConsultDoctor, :Medication, :Rest .
+

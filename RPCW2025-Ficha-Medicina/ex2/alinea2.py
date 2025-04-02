@@ -1,5 +1,9 @@
 import csv
 
+"""
+2. Para os sintomas de cada doença vais criar uma instância para cada sintoma se esta ainda não existir;
+"""
+
 symptoms = ["Fever","Cough","SoreThroat","IncreasedThirst","FrequentUrination","Fatigue"]
 codigo_ttl = """"""
 
@@ -16,6 +20,6 @@ with open("Disease_Syntoms.csv", newline='', encoding='utf-8') as csvfile:
                 codigo_ttl += f":{s} a :Symptom .\n"
             
             
-with open("medical.ttl", "a", encoding="utf-8") as file:
+with open("med_doencas.ttl", "a", encoding="utf-8") as file:
         file.write(codigo_ttl + "\n")
         

@@ -1,5 +1,9 @@
 import csv
 
+"""
+4. A partir de Disease_Description.csv vais associar uma descrição a cada doença (cria esta nova propriedade);
+"""
+
 diseases = ["Flu","Diabetes"]
 diseases_ = {}
 codigo_disease_ttl = """"""
@@ -37,6 +41,6 @@ for d, des in diseases_.items():
 
     codigo_ttl += f"\n:{d} :description \"{des['description']}\" .\n"
     
-with open("medical.ttl", "a", encoding="utf-8") as file:
+with open("med_doencas.ttl", "a", encoding="utf-8") as file:
         file.write(codigo_disease_ttl + "\n")
         file.write(codigo_ttl + "\n")

@@ -1,13 +1,7 @@
 import csv
+
 """
-#Class
-:Description a owl:Class .
-
-# Property
-:description a owl:ObjectProperty ;
-    rdfs:domain :Disease ;
-    rdfs:range :Description .
-
+3. Vais associar cada doença criada aos respetivos sintomas;
 """
 
 codigo_ttl = """"""
@@ -47,5 +41,5 @@ def generate_ttl(dic):
 
 codigo_ttl = generate_ttl(dic)
             
-with open("medical.ttl", "a", encoding="utf-8") as file:
+with open("med_doencas.ttl", "a", encoding="utf-8") as file:
         file.write(codigo_ttl + "\n")

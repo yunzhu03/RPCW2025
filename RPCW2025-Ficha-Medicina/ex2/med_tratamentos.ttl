@@ -527,7 +527,8 @@
 :EaseBackIntoEating a :Treatment.
 :CoverMouth a :Treatment.
 
-# alinea 7:Drug_Reaction :hasTreatment :StopIrritation, :ConsultNearestHospital, :StopTakingDrug, :FollowUp .
+# alinea 7
+:Drug_Reaction :hasTreatment :StopIrritation, :ConsultNearestHospital, :StopTakingDrug, :FollowUp .
 :Malaria :hasTreatment :ConsultNearestHospital, :AvoidOilyFood, :AvoidNonVegFood, :KeepMosquitosOut .
 :Allergy :hasTreatment :ApplyCalamine, :CoverAreaWithBandage, :UseIceToCompressItching .
 :Hypothyroidism :hasTreatment :ReduceStress, :Exercise, :EatHealthy, :GetProperSleep .
